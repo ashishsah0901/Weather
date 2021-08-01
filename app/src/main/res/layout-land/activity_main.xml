@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/date_main_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/weather_IV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/one_third"/>
+
+    <ImageView
+        android:id="@+id/weather_IV"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/current_temp_TV"
+        app:layout_constraintTop_toBottomOf="@id/date_main_TV"/>
+
+    <TextView
+        android:id="@+id/main_description_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/weather_IV"
+        app:layout_constraintEnd_toEndOf="@id/weather_IV"
+        app:layout_constraintTop_toBottomOf="@id/weather_IV"
+        app:layout_constraintBottom_toTopOf="@id/weather_hourly_Rv"/>
+
+    <TextView
+        android:id="@+id/current_temp_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="@id/one_third"
+        app:layout_constraintTop_toTopOf="@id/weather_IV"
+        app:layout_constraintBottom_toBottomOf="@id/weather_IV"
+        app:layout_constraintStart_toEndOf="@id/weather_IV"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weather_hourly_Rv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        android:layout_marginBottom="12dp"
+        tools:listitem="@layout/item_weather_hourly"
+        app:layout_constraintEnd_toEndOf="@id/one_third"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_description_TV"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weather_RV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_weather_daily"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/one_third"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/one_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
